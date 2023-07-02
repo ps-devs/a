@@ -10,7 +10,7 @@ jobs:
       - name: set output
         id: step1
         run: |
-          echo "myoutput='hello world'" >> $GITHUB_OUTPUT
+          echo "myoutput=${github.event_name}" >> $GITHUB_OUTPUT
 
   job2:
     runs-on: ubuntu-latest
