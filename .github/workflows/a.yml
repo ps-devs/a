@@ -3,7 +3,6 @@ on: push
 jobs:
   job1:
     runs-on: ubuntu-latest
-    # Map a step output to a job output push
     steps:
       - id: url
         run: echo "test=hello" >> "$GITHUB_OUTPUT"
