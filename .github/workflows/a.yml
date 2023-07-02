@@ -5,10 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: url
-        run: echo "test=hello" >> $GITHUB_ENV
+        run: echo "a=hello" >> "$GITHUB_OUTPUT"
   job2:
     runs-on: ubuntu-latest
     needs: job1
     steps:
       - run: echo "${{ needs.job1.outputs.url }}"
+
 
