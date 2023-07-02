@@ -18,4 +18,4 @@ jobs:
     steps:
       - name: retrieve output
         run: |
-          echo ${{ needs.job1.outputs.myoutput }}
+          echo '${{ needs.job1.outputs.myoutput }}'
