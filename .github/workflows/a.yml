@@ -1,15 +1,21 @@
-on: push
+name: Color Workflow
+
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  job1:
+  set_color_job:
     runs-on: ubuntu-latest
     steps:
       - name: Set color
         id: random-color-generator
-        run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
+        run: echo "SELECTED_COLOR=green" >> "$GITHUB_WORKSPACE/GITHUB_OUTPUT"
+
+  get_color_job:
+    needs: set_color_job
+    runs-on: ubuntu-latest
+    steps:
       - name: Get color
-        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-
-
-
-
+        run: echo "The selected color is ${{ needs.set_color_job.outputs.SELECTED_COLOR }}"
