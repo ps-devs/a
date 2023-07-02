@@ -10,8 +10,7 @@ jobs:
       - name: set output
         id: step1
         run: |
-          text="hey"
-          echo "myoutput=$text" >> $GITHUB_OUTPUT
+          echo "myoutput=text" >> $GITHUB_OUTPUT
           echo "deployed to $text"
 
   job2:
